@@ -20,7 +20,7 @@ dag = DAG(
 
 start = DummyOperator(task_id='start', dag=dag)
 
-passing = KubernetesPodOperator(namespace='default',
+passing = KubernetesPodOperator(namespace='airflow',
                           image="python:3.6",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
@@ -31,7 +31,7 @@ passing = KubernetesPodOperator(namespace='default',
                           dag=dag
                           )
 
-failing = KubernetesPodOperator(namespace='default',
+failing = KubernetesPodOperator(namespace='airflow',
                           image="ubuntu:16.04",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
