@@ -2,8 +2,12 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
+import time
 
 def print_hello():
+    print('It works')
+    time.sleep(60 * 3)
+    print('Bye')
     return 'Hello world!'
 
 dag = DAG('hello_world', description='Simple tutorial DAG',
