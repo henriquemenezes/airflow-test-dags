@@ -4,6 +4,8 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 import time
 
+time.sleep(60 * 10)
+
 from my_etl_dags.utils.functions import print_hello
 
 dag = DAG('hello_world_with_module', description='Simple tutorial DAG',
